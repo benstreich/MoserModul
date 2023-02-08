@@ -27,10 +27,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $value
         </li>";
       }
+
     ?>
 </ul>
 
-<form method="POST" action="http://m151.test/Uebungen/Uebung1.5/PizzaKonfigurator.php">
+<form method="POST" action="?">
     <input type="text" name="Zutat" placeholder="Zutat" />
     <input type="submit" value="Absenden"/>
 </form>
+
+
+
+
+<!--
+   1. Session starten 
+   2. Daten aus Session lesen
+
+   3. Daten verändern
+   4. Daten in Session speichern
+
+-!>
+
+
+<!- $var = $x > 5 ? "grösser als 5" : "kleiner als 5"
