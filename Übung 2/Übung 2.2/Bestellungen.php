@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -14,37 +15,28 @@ catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
 
-?>
 
+
+$sql2 = "SELECT first_name, last_name, order_date, shipped_date
+FROM customers, orders
+INNER JOIN orders ON id = customer_id";
+
+foreach ($conn->query($sql2) as $row){ ?>
 
 <table>
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Job Title</th>
-    <th></th>
+    <th>Order Date</th>
+    <th>Shipped Date</th>
   </tr>
-
-  <?php $sql = "SELECT * FROM customers";
-  foreach ($conn->query($sql) as $row){ ?>
-
 
   <tr>
   <td> <?php echo $row['first_name']; ?> </td>
-  
-
-  
   <td> <?php echo $row['last_name']; ?> </td>
- 
-
-  
-  <td> <?php echo $row['job_title']; ?> </td>
-
-  <td> <a href="/Bestellungen.php"><button style="color: blue; background-color:white">Bestellungen ansehen</button></a></td>
+  <td> <?php echo $row['order_date']; ?> </td>
+  <td> <?php echo $row['shipped_date']; ?> </td>
   </tr>
-
-
-  <?php } ?>
   <Style>
     table,
 td,
@@ -54,8 +46,4 @@ th {
 </Style>
 </table>
 
-
-
-
-
-
+<?php } ?>
